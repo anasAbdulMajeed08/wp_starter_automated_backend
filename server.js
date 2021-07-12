@@ -20,5 +20,5 @@ app.get("/", (req, res) => {
 });
 readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
 
-const port = "https://wp-starter-automated-backend.vercel.app/";
+const port = 8000;
 app.listen(port, () => console.log(`server is running in port ${port}`));

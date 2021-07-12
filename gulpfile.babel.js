@@ -14,7 +14,6 @@ const argOpts = yargs
     alias: "themeName",
     describe: "Your Theme Name",
     type: "string",
-    demandOption: true,
   })
   .option("d", {
     alias: "destination",
@@ -24,6 +23,8 @@ const argOpts = yargs
 
 //plucking themename and destination from cli inputs
 const { themeName, destination } = argOpts;
+
+const theme_name = themeName ? themeName : "test";
 
 const paths = {
   package: {
@@ -52,19 +53,19 @@ export const compress = () => {
     .src(paths.package.src)
     .pipe(
       rename(function (file) {
-        file.dirname = file.dirname.replace(/_themename/g, themeName);
-        file.basename = file.basename.replace(/_themename/g, themeName);
+        file.dirname = file.dirname.replace(/_themename/g, theme_name);
+        file.basename = file.basename.replace(/_themename/g, theme_name);
       })
     )
-    .pipe(replace("_themename", themeName))
-    .pipe(zip(`${themeName}.zip`))
+    .pipe(replace("_themename", theme_name))
+    .pipe(zip(`${theme_name}.zip`))
     .pipe(gulp.dest(paths.package.dest));
 
   // .pipe(zip(`${info.name}.zip`))
 };
 
 export const clear = () => {
-  return del([`packaged/${themeName}`]);
+  return del([`packaged/${theme_name}`]);
 };
 
 export const bundle = gulp.series(compress);

@@ -7,7 +7,7 @@ export const generate_theme = async (req, res) => {
   try {
     const { themeName } = req.body;
     const packaged = await exec(
-      `npm run bundle -- -n ${themeName}`,
+      `npm run build -- -n ${themeName}`,
       (error, stdout, stderr) => {
         if (error) {
           // console.log(`error: ${errors(error.message)}`);
@@ -37,9 +37,9 @@ export const generate_theme = async (req, res) => {
 export const download = async (req, res) => {
   try {
     let { filename } = req.params;
-    if (resolve(`../server/packaged/${filename}`)) {
+    if (resolve(`../wp_starter_automated_backend/packaged/${filename}`)) {
       res.download(
-        resolve(`../server/packaged/${filename}`),
+        resolve(`../wp_starter_automated_backend/packaged/${filename}`),
         `${filename}.zip`,
         function (err) {
           if (err) {

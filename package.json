@@ -8,7 +8,7 @@
   },
   "scripts": {
     "clean": "gulp clean",
-    "bundle": "gulp bundle",
+    "build": "gulp bundle",
     "server": "nodemon -r esm server.js"
   },
   "author": "",

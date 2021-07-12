@@ -44,7 +44,7 @@ const paths = {
       "!routes{,/**}",
       "!server.js",
     ],
-    dest: destination ? destination : "packaged",
+    dest: destination ? destination : "public",
   },
 };
 
@@ -65,7 +65,7 @@ export const compress = () => {
 };
 
 export const clear = () => {
-  return del([`packaged/${theme_name}`]);
+  return del([`public/${theme_name}`]);
 };
 
 export const bundle = gulp.series(compress);

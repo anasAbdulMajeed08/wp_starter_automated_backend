@@ -5,3 +5,4 @@ dist
 *.sass-cache*
 packaged
 .vscode
+packaged/

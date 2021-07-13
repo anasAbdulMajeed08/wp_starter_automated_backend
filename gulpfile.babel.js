@@ -43,6 +43,7 @@ const paths = {
       "!controllers{,/**}",
       "!routes{,/**}",
       "!server.js",
+      "!Procfile"
     ],
     dest: destination ? destination : "packaged",
   },

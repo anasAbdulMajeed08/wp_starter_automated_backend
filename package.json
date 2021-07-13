@@ -9,7 +9,7 @@
   "scripts": {
     "start": "nodemon -r esm server.js",
     "clean": "gulp clean",
-    "build": "gulp bundle",
+    "build": "gulp bundle"
     
   },
   "author": "",

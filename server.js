@@ -19,7 +19,7 @@ app.use(morgan("dev"));
 app.get("/", (req, res) => {
   res.send("hello server is runing succesfully");
 });
-// readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
+readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`server is running in port ${port}`));

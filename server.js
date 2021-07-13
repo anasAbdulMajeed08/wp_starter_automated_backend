@@ -1,6 +1,7 @@
-import express from "express";
-import cors from "cors";
-import { readdirSync } from "fs";
+const express = require("express");
+const cors = require("cors");
+
+const readdirSync = require("fs").readdirSync;
 
 require("dotenv").config();
 
@@ -20,5 +21,5 @@ app.get("/", (req, res) => {
 });
 readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
 
-const port = process.env.PORT
+const port = process.env.PORT;
 app.listen(port, () => console.log(`server is running in port ${port}`));

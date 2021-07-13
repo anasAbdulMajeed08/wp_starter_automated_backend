@@ -3,7 +3,7 @@ const { resolve } = path;
 const chalk = require("chalk");
 var exec = require("child_process").exec;
 
-export const generate_theme = async (req, res) => {
+module.exports.generate_theme = async (req, res) => {
   try {
     const { themeName } = req.body;
     const packaged = await exec(
@@ -34,7 +34,7 @@ export const generate_theme = async (req, res) => {
   }
 };
 
-export const download = async (req, res) => {
+module.exports.download = async (req, res) => {
   try {
     let { filename } = req.params;
     if (resolve(`../wp_starter_automated_backend/packaged/${filename}`)) {

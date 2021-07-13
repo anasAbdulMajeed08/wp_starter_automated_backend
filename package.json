@@ -7,9 +7,10 @@
     "lib": "lib"
   },
   "scripts": {
+    "start": "nodemon -r esm server.js",
     "clean": "gulp clean",
     "build": "gulp bundle",
-    "server": "nodemon -r esm server.js"
+    
   },
   "author": "",
   "license": "ISC",

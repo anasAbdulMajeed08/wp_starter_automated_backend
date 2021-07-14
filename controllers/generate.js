@@ -10,11 +10,11 @@ module.exports.generate_theme = async (req, res) => {
       `npm run build -- -n ${themeName}`,
       (error, stdout, stderr) => {
         if (error) {
-          // console.log(`error: ${errors(error.message)}`);
+          console.log(`error: ${error.message}`);
           return;
         }
         if (stderr) {
-          // console.log(`stderr: ${errors(stderr)}`);
+          console.log(`stderr: ${stderr}`);
           return;
         }
         res.status(200).json({ ok: true });

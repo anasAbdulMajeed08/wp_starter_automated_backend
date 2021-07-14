@@ -37,9 +37,9 @@ module.exports.generate_theme = async (req, res) => {
 module.exports.download = async (req, res) => {
   try {
     let { filename } = req.params;
-    if (resolve(`../wp_starter_automated_backend/packaged/${filename}`)) {
+    if (resolve(`./packaged/${filename}`)) {
       res.download(
-        resolve(`../wp_starter_automated_backend/packaged/${filename}`),
+        resolve(`./packaged/${filename}`),
         `${filename}.zip`,
         function (err) {
           if (err) {
